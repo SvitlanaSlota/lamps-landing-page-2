@@ -30,7 +30,27 @@ if (menuToggle && navLinks) {
       el: ".swiper-pagination",
       clickable: true,
     },
+
+    breakpoints: {
+      // від 480px - 2 слайди
+      480: {
+        slidesPerView: 2,
+        spaceBetween: 15,
+      },
+      // від 768px - 3 слайди
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      // від 1024px (десктоп) - 4 слайди
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 25,
+      },
+    },
   });
+
+
 }
 
 {
@@ -42,7 +62,7 @@ if (menuToggle && navLinks) {
 
     // Пагінація
     pagination: {
-      el: ".swiper-pagination",
+      el: ".gallery-swiper-pagination",
       clickable: true,
     },
 
