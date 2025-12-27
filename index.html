@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lamps_landing_page</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Kadwa:wght@400;700&family=Lato&family=Roboto:wght@100..900&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+
+  <section class="hero-section">
+    <nav class="nav-bar">
+      <a href="" class="logo">
+        <img src="icons/logo.svg" alt="logo">
+      </a>
+
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="burger-icon"></span>
+      </button>
+
+      <ul class="nav-links">
+        <li class="nav"><a class="link" href="#advantages">Переваги</a></li>
+        <li class="nav"><a class="link" href="#products">Продукція</a></li>
+        <li class="nav"><a class="link" href="#gallery">Галерея</a></li>
+        <li class="nav"><a class="link" href="#about-us">Про нас</a></li>
+        <li class="nav"><a class="link" href="#reviews">Відгуки</a></li>
+        <li class="nav"><a class="link" href="#faq-section">Поширені питання</a></li>
+      </ul>
+
+      <div class="nav-contacts">
+        <div class="phone-wrapper">
+          <a href="tel:+380501234567" class="phone-icon-link">
+            <svg class="social-icon">
+              <use xlink:href="icons/sprite.svg#pfone"></use>
+            </svg>
+          </a>
+          <a class="address-link desktop-link" href="tel:+380501234567">+ 38(050)123-45-67</a>
+        </div>
+
+        <a class="mobile-phone-link" href="tel:+380501234567">+ 38(050)123-45-67</a>
+
+        <a href="#">
+          <svg class="social-icon">
+            <use xlink:href="icons/sprite.svg#instagram"></use>
+          </svg>
+        </a>
+        <a href="#">
+          <svg class="social-icon">
+            <use xlink:href="icons/sprite.svg#fb"></use>
+          </svg>
+        </a>
+        <a href="#">
+          <svg class="social-icon">
+            <use xlink:href="icons/sprite.svg#tiktok"></use>
+          </svg>
+        </a>
+      </div>
+    </nav>
+
+    <h1 id="top-anchor">Шукаєте оригінальний подарунок?</h1>
+    <p class="hero-text">
+      Світильники ручної роботи : <br />
+      красиво, практично, ідеально для створення романтичної атмосфери
+    </p>
+    <button class="hero-button">Замовити світильник</button>
+  </section>
+
+
+  <section class="advantages" id="advantages">
+    <h2 class="title">Чому обирають наші світильники?</h2>
+    <div class="advantages-container">
+      <ul class="advantages-list">
+        <li class="advantages-block">
+          <svg class="icon">
+            <use xlink:href="../icons/sprite.svg#handicraft"></use>
+          </svg>
+          <p>Ручна робота за індивідуальним замовленням</p>
+        </li>
+        <li class="advantages-block">
+          <svg class="icon">
+            <use xlink:href="../icons/sprite.svg#diamond"></use>
+          </svg>
+          <p>Якісний, міцний, довговічний, гіпоалергенний матеріал</p>
+        </li>
+        <li class="advantages-block">
+          <svg class="icon">
+            <use xlink:href="../icons/sprite.svg#house"></use>
+          </svg>
+          <p>Можна використовувати як для інтер'єра так і для екстер'єра</p>
+        </li>
+        <li class="advantages-block">
+          <svg class="icon">
+            <use xlink:href="../icons/sprite.svg#color_scheme"></use>
+          </svg>
+          <p>Широка кольорова гама. Можна тонувати пастеллю</p>
+        </li>
+        <li class="advantages-block">
+          <svg class="icon">
+            <use xlink:href="../icons/sprite.svg#power-source"></use>
+          </svg>
+          <p>Можливість підключати до різних джерел живлення</p>
+        </li>
+        <li class="advantages-block">
+          <svg class="icon">
+            <use xlink:href="../icons/sprite.svg#weather"></use>
+          </svg>
+          <p>Не деформується при температурних перепадах</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+  <section class="products" id="products">
+    <h2 class="title">Наші спеціальні пропозиції</h2>
+
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide products-item">
+          <h3 class="products-name">Свічка</h3>
+          <img src="images/candle.png" alt="Свічка" class="products-img">
+          <div class="price-box">
+            <span class="old-price">659 грн</span>
+            <span class="new-price">499 грн</span>
+          </div>
+          <button class="products-button">Замовити світильник</button>
+        </div>
+
+        <div class="swiper-slide products-item">
+          <h3 class="products-name">Лялька</h3>
+          <img src="images/doll.png" alt="Лялька" class="products-img">
+          <div class="price-box">
+            <span class="old-price">1259 грн</span>
+            <span class="new-price">1159 грн</span>
+          </div>
+          <button class="products-button">Замовити світильник</button>
+        </div>
+
+        <div class="swiper-slide products-item">
+          <h3 class="products-name">Орхідея</h3>
+          <img src="images/orchid.png" alt="Орхідея" class="products-img">
+          <div class="price-box">
+            <span class="old-price">1200 грн</span>
+            <span class="new-price">1099 грн</span>
+          </div>
+          <button class="products-button">Замовити світильник</button>
+        </div>
+
+        <div class="swiper-slide products-item">
+          <h3 class="products-name">Троянда</h3>
+          <img src="images/rose.png" alt="Троянда" class="products-img">
+          <div class="price-box">
+            <span class="old-price">1259 грн</span>
+            <span class="new-price">1159 грн</span>
+          </div>
+          <button class="products-button">Замовити світильник</button>
+        </div>
+
+        <div class="swiper-slide products-item">
+          <h3 class="products-name">Квіти</h3>
+          <img src="images/flowers.png" alt="Квіти" class="products-img">
+          <div class="price-box">
+            <span class="old-price">659 грн</span>
+            <span class="new-price">499 грн</span>
+          </div>
+          <button class="products-button">Замовити світильник</button>
+        </div>
+
+        <div class="swiper-slide products-item">
+          <h3 class="products-name">Рожеві троянди</h3>
+          <img src="images/pink_roses.png" alt="Рожеві троянди" class="products-img">
+          <div class="price-box">
+            <span class="old-price">1259 грн</span>
+            <span class="new-price">1159 грн</span>
+          </div>
+          <button class="products-button">Замовити світильник</button>
+        </div>
+
+        <div class="swiper-slide products-item">
+          <h3 class="products-name">Орхідея біла</h3>
+          <img src="images/white_orchid.png" alt="Орхідея біла" class="products-img">
+          <div class="price-box">
+            <span class="old-price">1200 грн</span>
+            <span class="new-price">1099 грн</span>
+          </div>
+          <button class="products-button">Замовити світильник</button>
+        </div>
+
+        <div class="swiper-slide products-item">
+          <h3 class="products-name">Маки</h3>
+          <img src="images/popy.png" alt="Маки" class="products-img">
+          <div class="price-box">
+            <span class="old-price">1259 грн</span>
+            <span class="new-price">1159 грн</span>
+          </div>
+          <button class="products-button">Замовити світильник</button>
+        </div>
+
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <h2 class="gallery-title">Вибирайте світильник на свій смак</h2>
+
+      <div class="swiper gallerySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="images/gallery1.png" alt="Світильник Троянда">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/gallery2.png" alt="Світильник Орхідея">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/gallery3.png" alt="Світильник Куля">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/gallery4.png" alt="Світильник Букет">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/gallery5.png" alt="Світильник">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/gallery6.png" alt="Світильник">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/gallery7.png" alt="Світильник">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/gallery8.png" alt="Світильник">
+          </div>
+        </div>
+        <div class="gallery-swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="about-us" id="about-us">
+    <h2 class="title">Про нас</h2>
+    <div class="about-us-container">
+      <img src="images/photo_Tanja.png" alt="">
+      <ul class="about-us-block">
+        <li class="about-us-list">Працюємо на ринку більш ніж 20 років</li>
+        <li class="about-us-list">Маємо більше 1000 задоволених клієнтів</li>
+        <li class="about-us-list">Використовуємо в роботі різні професійні екологічні та гіпоалергені матеріали</li>
+        <li class="about-us-list">Пропонуємо вироби як для дорослих, так і для дітей</li>
+        <li class="about-us-list">Втілюємо ваші мрії та навчаємо робити красу своїми руками</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <h2 class="title">Що клієнти говорять про наші вироби</h2>
+    <div class="reviews-wrapper">
+      <button class="scroll-btn prev">&#10094;</button>
+
+      <div class="reviews-container">
+        <ul class="reviews-list">
+
+          <li class="reviews-item">
+            <div class="reviews-content">
+              <h3>Cвітильник “Орхідея”</h3>
+              <p class="reviews-text">Неймовірна краса. Велика кількість варіантів кольорів і розмірів.
+                Вдячна за акуратну роботу і швидку доставку. Рекомендую.</p>
+              <p class="reviews-author">Оксана</p>
+            </div>
+            <img src="images/photo_Alisa.png" alt="Орхідея">
+          </li>
+
+          <li class="reviews-item">
+            <div class="reviews-content">
+              <h3>Cвітильник “Троянда”</h3>
+              <p class="reviews-text">Дуже задоволена швикістю виконання роботи.Світильник просто чудовий, брала на
+                подарунок</p>
+              <p class="reviews-author">Марина</p>
+            </div>
+            <img src="images/photo_Natali.png" alt="Троянда">
+          </li>
+
+          <li class="reviews-item">
+            <div class="reviews-content">
+              <h3>Cвітильник “Лялька”</h3>
+              <p class="reviews-text">Брав на подарунок. Оригінальний, дівчині сподобався. <br>Дуже задоволений покупкою
+              </p>
+              <p class="reviews-author">Олексій</p>
+            </div>
+            <img src="images/photo_Danila.png" alt="Лялька">
+          </li>
+          <li class="reviews-item">
+            <div class="reviews-content">
+              <h3>Cвітильник “Орхідея”</h3>
+              <p class="reviews-text">Неймовірна краса.Вдячна за акуратну роботу і швидку доставку.Рекомендую.</p>
+              <p class="reviews-author">Оксана</p>
+            </div>
+            <img src="images/photo_Alisa.png" alt="Орхідея">
+          </li>
+
+          <li class="reviews-item">
+            <div class="reviews-content">
+              <h3>Cвітильник “Троянда”</h3>
+              <p class="reviews-text">Дуже задоволена швикістю виконання роботи.Світильник просто чудовий, брала на
+                подарунок</p>
+              <p class="reviews-author">Марина</p>
+            </div>
+            <img src="images/photo_Natali.png" alt="Троянда">
+          </li>
+
+          <li class="reviews-item">
+            <div class="reviews-content">
+              <h3>Cвітильник “Лялька”</h3>
+              <p class="reviews-text">Брав на подарунок. Оригінальний, дівчині сподобався. <br>Дуже задоволений покупкою
+              </p>
+              <p class="reviews-author">Олексій</p>
+            </div>
+            <img src="images/photo_Danila.png" alt="Лялька">
+          </li>
+        </ul>
+      </div>
+
+      <button class="scroll-btn next" aria-label="Наступний відгук">&#10095;</button>
+    </div>
+    <div class="pagination-dots"></div>
+  </section>
+
+
+
+
+
+
+
+
+  Замовляйте світильник зараз !
+
+  Акція : купи світильник і отримуй букет в подарунок.
+  При купівлі на 2000 грн доставка по Україїні безкоштовна.
+  (050)123-45-67
+  Замовити світильник
+
+  <section class="faq-section" id="faq-section">
+    <h2 class="title">Поширені питання</h2>
+
+    <div class="faq-container">
+      <details class="faq-item">
+        <summary class="faq-question">
+          Чи можна зробити світильник для вулиці?
+        </summary>
+        <div class="faq-answer">
+          <p>Так, можна. Матеріал, з якого виготовляється світильник, витримує перепади температур -50°C до +70°C без
+            деформації та вигорання.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          Які розміри світильників можна виготовити?
+        </summary>
+        <div class="faq-answer">
+          <p>Доступні різні розміри. Стандартні - 50х50см, 60х60см та згідно індивідуальних замовлень</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          Який термін виготовлення замовлення?
+        </summary>
+        <div class="faq-answer">
+          <p>Термін виготовлення зазвичай становить 7-10 робочих днів, залежно від складності та обсягу замовлення.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          Які способи доставки готового замовлення доступні?
+        </summary>
+        <div class="faq-answer">
+          <p>Ми пропонуємо доставку Новою Поштою по всій території України або кур'єром по місту. Можливий самовивіз.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          Чи є знижки при купівлі?
+        </summary>
+        <div class="faq-answer">
+          <p>У нас діє гнучка система знижок для постійних клієнтів. При замовленні від 2000 грн ви отримаєте
+            бескоштовну доставку замовлення по Україні</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <section class="footer-section">
+
+    <div class="footer-container">
+      <h2 class="footer-title">Маєте питання ?</h2>
+      <p>Залиште номер телефона і ми вам зателефонуємо</p>
+      <form class="footer-form">
+        <div class="inputs-group">
+          <input type="text" placeholder="Ім’я*" class="footer-input">
+          <input type="tel" placeholder="Телефон*" class="footer-input" maxlength="19" required>
+        </div>
+        <button type="submit" class="footer-button">Надіслати</button>
+      </form>
+      <div class="footer-bottom">
+        <div class="footer-contacts">
+          <a href="tel:+380501234567" class="footer-phone">
+            <svg class="social-icon">
+              <use xlink:href="icons/sprite.svg#pfone"></use>
+            </svg>
+            <span>+380501234567</span>
+          </a>
+        </div>
+        <div class="footer-socials">
+          <a href="#"><svg class="social-icon">
+              <use xlink:href="icons/sprite.svg#instagram"></use>
+            </svg></a>
+          <a href="#"><svg class="social-icon">
+              <use xlink:href="icons/sprite.svg#fb"></use>
+            </svg></a>
+          <a href="#"><svg class="social-icon">
+              <use xlink:href="icons/sprite.svg#tiktok"></use>
+            </svg></a>
+        </div>
+      </div>
+      <a href="#" class="scroll-top">
+        <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="23" cy="23" r="23" fill="#3A0791" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M13.1844 30.9998C13.1064 30.9998 13.0284 30.9703 12.969 30.9115L10.0893 28.0647C9.97023 27.9471 9.97023 27.7564 10.0893 27.6387L22.7844 15.0883C22.9035 14.9706 23.0964 14.9706 23.2153 15.0883L35.9107 27.6387C36.0297 27.7566 36.0298 27.9471 35.9107 28.065L33.0311 30.9117C32.912 31.0294 32.719 31.0294 32.6001 30.9117L22.9999 21.4209L13.3997 30.9117C13.3402 30.9705 13.2622 31 13.1843 31L13.1844 30.9998Z"
+            fill="#FEFEFE" />
+        </svg>
+      </a>
+    </div>
+
+
+  </section>
+
+
+
+</body>
+
+</html>
