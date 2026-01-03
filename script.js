@@ -23,75 +23,67 @@ if (menuToggle && navLinks) {
 
 {
   // Скрол для Products
-  var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 4,
-    spaceBetween: 30,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
+const swiper = new Swiper('.mySwiper', {
+  slidesPerView: 1.2, // Показує шматочок наступної для мобілок (інтуїтивно для свайпу)
+  centeredSlides: false,
+  spaceBetween: 15,
+  slidesPerGroup: 1, // ГОРТАЄМО ПО ОДНІЙ КАРТЦІ
+  loop: false, // Для точної кількості крапок краще вимкнути loop
+  
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  
+  breakpoints: {
+    480: {
+      slidesPerView: 2,
+      spaceBetween: 20,
     },
-
-    breakpoints: {
-      // від 480px - 2 слайди
-      480: {
-        slidesPerView: 2,
-        spaceBetween: 15,
-      },
-      // від 768px - 3 слайди
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 20,
-      },
-      // від 1024px (десктоп) - 4 слайди
-      1024: {
-        slidesPerView: 4,
-        spaceBetween: 25,
-      },
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 25,
     },
-  });
-
-
+    1280: {
+      slidesPerView: 4,
+      spaceBetween: 30,
+    }
+  },
+});
 }
 
-{
-  // Скрол для Gallery 
-  var swiper = new Swiper(".gallerySwiper", {
-    // Кількість слайдів для показу
-    slidesPerView: 1,
-    spaceBetween: 10,
 
-    // Пагінація
-    pagination: {
-      el: ".gallery-swiper-pagination",
-      clickable: true,
-    },
+// Слайдер Галерея
+const gallerySwiper = new Swiper(".gallerySwiper", {
+  slidesPerView: 1,
+  spaceBetween: 10,
+  pagination: {
+    el: ".gallery-swiper-pagination",
+    clickable: true,
+  },
 
-    // Автовідтворення (опціонально)
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
 
-    // Адаптивні точки (Breakpoints)
-    breakpoints: {
-      // від 480px - 2 слайди
-      480: {
-        slidesPerView: 2,
-        spaceBetween: 15,
-      },
-      // від 768px - 3 слайди
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 20,
-      },
-      // від 1024px (десктоп) - 4 слайди
-      1024: {
-        slidesPerView: 4,
-        spaceBetween: 25,
-      },
+  breakpoints: {
+    480: {
+      slidesPerView: 2,
+      spaceBetween: 15,
     },
-  });
-}
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    1280: {
+      slidesPerView: 4,
+      spaceBetween: 25,
+    },
+  },
+});
+
+
 
 //  ФОРМА ЗВОРОТНОГО ЗВ'ЯЗКУ 
 const footerForm = document.querySelector('.footer-form');
@@ -142,55 +134,73 @@ if (footerForm) {
 }
 
 // --- Логіка Слайдера Відгуків ---
-const container = document.querySelector('.reviews-container');
 const list = document.querySelector('.reviews-list');
-const items = document.querySelectorAll('.reviews-item');
 const dotsContainer = document.querySelector('.pagination-dots');
-const prevBtn = document.querySelector('.scroll-btn.prev');
-const nextBtn = document.querySelector('.scroll-btn.next');
+const items = document.querySelectorAll('.reviews-item');
+let currentIndex = 0;
 
-if (container && items.length) {
+function getItemsPerPage() {
+  if (window.innerWidth >= 1280) return 3;
+  if (window.innerWidth >= 768) return 2;
+  return 1;
+}
 
-  // Створюємо крапки
+function updateSlider() {
+  const itemsPerPage = getItemsPerPage();
+  const itemWidth = items[0].offsetWidth + 20; // ширина + gap
+  list.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+
+  // Оновлення активної точки
+  document.querySelectorAll('.dot').forEach((dot, index) => {
+    dot.classList.toggle('active', index === currentIndex);
+  });
+}
+
+function createPagination() {
   dotsContainer.innerHTML = '';
-  items.forEach((_, i) => {
+  const itemsPerPage = getItemsPerPage();
+
+  // Кількість точок = Загальна кількість - (Видимі - 1)
+  // Для десктопа: 6 - (3 - 1) = 4 точки.
+  const dotsCount = items.length - itemsPerPage + 1;
+
+  for (let i = 0; i < dotsCount; i++) {
     const dot = document.createElement('div');
     dot.classList.add('dot');
     if (i === 0) dot.classList.add('active');
     dot.addEventListener('click', () => {
-      const offset = items[i].offsetLeft - list.offsetLeft;
-      container.scrollTo({ left: offset, behavior: 'smooth' });
+      currentIndex = i;
+      updateSlider();
     });
     dotsContainer.appendChild(dot);
-  });
-
-  const dots = document.querySelectorAll('.dot');
-
-  // Оновлення активної крапки при скролі
-  container.addEventListener('scroll', () => {
-    const scrollLeft = container.scrollLeft;
-    const itemWidth = items[0].offsetWidth + 30; // ширина + gap
-    const index = Math.round(scrollLeft / itemWidth);
-
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-  });
-
-  // Кнопки скролу
-  const getScrollAmount = () => items[0].offsetWidth + 30;
-
-  nextBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    container.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
-  });
-
-  prevBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    container.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
-  });
+  }
 }
 
+// Слухачі подій
+window.addEventListener('resize', () => {
+  currentIndex = 0; // Скидаємо при зміні екрану
+  createPagination();
+  updateSlider();
+});
+
+document.querySelector('.next').addEventListener('click', () => {
+  const dotsCount = items.length - getItemsPerPage() + 1;
+  if (currentIndex < dotsCount - 1) {
+    currentIndex++;
+    updateSlider();
+  }
+});
+
+document.querySelector('.prev').addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateSlider();
+  }
+});
+
+// Ініціалізація
+createPagination();
+updateSlider();
 
 
 // --- Маска телефону (Виправлено перетин подій) ---

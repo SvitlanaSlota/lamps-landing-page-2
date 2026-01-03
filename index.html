@@ -36,7 +36,8 @@
         <li class="nav"><a class="link" href="#gallery">Галерея</a></li>
         <li class="nav"><a class="link" href="#about-us">Про нас</a></li>
         <li class="nav"><a class="link" href="#reviews">Відгуки</a></li>
-        <li class="nav"><a class="link" href="#faq-section">Поширені питання</a></li>
+        <li class="nav"><a class="link" href="#order">Замовити</a></li>
+        <li class="nav"><a class="link" href="#faq-section">Питання</a></li>
       </ul>
 
       <div class="nav-contacts">
@@ -69,12 +70,14 @@
       </div>
     </nav>
 
-    <h1 id="top-anchor">Шукаєте оригінальний подарунок?</h1>
-    <p class="hero-text">
-      Світильники ручної роботи : <br />
-      красиво, практично, ідеально для створення романтичної атмосфери
-    </p>
-    <button class="hero-button">Замовити світильник</button>
+    <div class="hero-title">
+      <h1 class="top-anchor" id="top-anchor">Шукаєте оригінальний подарунок?</h1>
+      <p class="hero-text">
+        Світильники ручної роботи : <br />
+        красиво, практично, ідеально для створення романтичної атмосфери
+      </p>
+      <button class="hero-button">Замовити світильник</button>
+    </div>
   </section>
 
 
@@ -121,7 +124,6 @@
       </ul>
     </div>
   </section>
-
 
   <section class="products" id="products">
     <h2 class="title">Наші спеціальні пропозиції</h2>
@@ -267,8 +269,9 @@
 
   <section class="reviews" id="reviews">
     <h2 class="title">Що клієнти говорять про наші вироби</h2>
+
     <div class="reviews-wrapper">
-      <button class="scroll-btn prev">&#10094;</button>
+      <button class="scroll-btn prev" aria-label="Попередній відгук">&#10094;</button>
 
       <div class="reviews-container">
         <ul class="reviews-list">
@@ -276,81 +279,110 @@
           <li class="reviews-item">
             <div class="reviews-content">
               <h3>Cвітильник “Орхідея”</h3>
-              <p class="reviews-text">Неймовірна краса. Велика кількість варіантів кольорів і розмірів.
-                Вдячна за акуратну роботу і швидку доставку. Рекомендую.</p>
-              <p class="reviews-author">Оксана</p>
+              <div class="reviews-text-wrapper">
+                <p class="reviews-text">Неймовірна краса. Велика кількість варіантів кольорів і розмірів. Вдячна за
+                  акуратну роботу і швидку доставку. Рекомендую.</p>
+                <p class="reviews-author">Оксана</p>
+              </div>
             </div>
-            <img src="images/photo_Alisa.png" alt="Орхідея">
+            <img src="images/photo_Alisa.png" alt="Оксана">
           </li>
 
           <li class="reviews-item">
             <div class="reviews-content">
               <h3>Cвітильник “Троянда”</h3>
-              <p class="reviews-text">Дуже задоволена швикістю виконання роботи.Світильник просто чудовий, брала на
-                подарунок</p>
-              <p class="reviews-author">Марина</p>
+              <div class="reviews-text-wrapper">
+                <p class="reviews-text">Дуже задоволена швидкістю виконання роботи. Світильник просто чудовий, брала на
+                  подарунок.</p>
+                <p class="reviews-author">Марина</p>
+              </div>
             </div>
-            <img src="images/photo_Natali.png" alt="Троянда">
+            <img src="images/photo_Natali.png" alt="Марина">
           </li>
 
           <li class="reviews-item">
             <div class="reviews-content">
               <h3>Cвітильник “Лялька”</h3>
-              <p class="reviews-text">Брав на подарунок. Оригінальний, дівчині сподобався. <br>Дуже задоволений покупкою
-              </p>
-              <p class="reviews-author">Олексій</p>
+              <div class="reviews-text-wrapper">
+                <p class="reviews-text">Брав на подарунок. Оригінальний, дівчині сподобався. Дуже задоволений покупкою.
+                </p>
+                <p class="reviews-author">Олексій</p>
+              </div>
             </div>
-            <img src="images/photo_Danila.png" alt="Лялька">
+            <img src="images/photo_Danila.png" alt="Олексій">
           </li>
+
           <li class="reviews-item">
             <div class="reviews-content">
               <h3>Cвітильник “Орхідея”</h3>
-              <p class="reviews-text">Неймовірна краса.Вдячна за акуратну роботу і швидку доставку.Рекомендую.</p>
-              <p class="reviews-author">Оксана</p>
+              <div class="reviews-text-wrapper">
+                <p class="reviews-text">Неймовірна краса. Велика кількість варіантів кольорів і розмірів. Вдячна за
+                  акуратну роботу і швидку доставку. Рекомендую.</p>
+                <p class="reviews-author">Оксана</p>
+              </div>
             </div>
-            <img src="images/photo_Alisa.png" alt="Орхідея">
+            <img src="images/photo_Alisa.png" alt="Оксана">
           </li>
 
           <li class="reviews-item">
             <div class="reviews-content">
               <h3>Cвітильник “Троянда”</h3>
-              <p class="reviews-text">Дуже задоволена швикістю виконання роботи.Світильник просто чудовий, брала на
-                подарунок</p>
-              <p class="reviews-author">Марина</p>
+              <div class="reviews-text-wrapper">
+                <p class="reviews-text">Дуже задоволена швидкістю виконання роботи. Світильник просто чудовий, брала на
+                  подарунок.</p>
+                <p class="reviews-author">Марина</p>
+              </div>
             </div>
-            <img src="images/photo_Natali.png" alt="Троянда">
+            <img src="images/photo_Natali.png" alt="Марина">
           </li>
 
           <li class="reviews-item">
             <div class="reviews-content">
               <h3>Cвітильник “Лялька”</h3>
-              <p class="reviews-text">Брав на подарунок. Оригінальний, дівчині сподобався. <br>Дуже задоволений покупкою
-              </p>
-              <p class="reviews-author">Олексій</p>
+              <div class="reviews-text-wrapper">
+                <p class="reviews-text">Брав на подарунок. Оригінальний, дівчині сподобався. Дуже задоволений покупкою.
+                </p>
+                <p class="reviews-author">Олексій</p>
+              </div>
             </div>
-            <img src="images/photo_Danila.png" alt="Лялька">
+            <img src="images/photo_Danila.png" alt="Олексій">
           </li>
+
         </ul>
       </div>
 
       <button class="scroll-btn next" aria-label="Наступний відгук">&#10095;</button>
     </div>
+
     <div class="pagination-dots"></div>
   </section>
 
 
 
 
+  <section class="order-section" id="order">
+    <div class="order-container">
+      <a href="">
+        <img src="images/gallery13.png" alt="" class="order-img">
+      </a>
+      <div class="order-box">
+        <h3>Замовляйте світильник зараз !</h3>
+        <div class="order-block">
+          <p class="order-text">
+            Акція : купи світильник і отримуй букет в подарунок.</br>
+            При купівлі на 2000 грн доставка по Україїні безкоштовна.
+          </p>
+          <div class="button-box">
+            <button class="order-phone">(050)123-45-67</button>
+            <button class="order-button">Замовити світильник</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
 
-
-  Замовляйте світильник зараз !
-
-  Акція : купи світильник і отримуй букет в подарунок.
-  При купівлі на 2000 грн доставка по Україїні безкоштовна.
-  (050)123-45-67
-  Замовити світильник
 
   <section class="faq-section" id="faq-section">
     <h2 class="title">Поширені питання</h2>

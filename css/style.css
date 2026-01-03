@@ -48,7 +48,7 @@ html {
   background-image: url(../images/hero-bg.png);
   text-align: center;
   color: var(--white);
-  padding-top: 20px;
+  padding: 0 20px;
 
   @media (width < 1746px) {
     aspect-ratio: 1440/450;
@@ -61,6 +61,7 @@ html {
   @media (width < 873px) {
     aspect-ratio: 480/450;
     background-size: 400% auto;
+    padding-block: 10px;
   }
 
   @media (width < 480px) {
@@ -75,13 +76,20 @@ html {
   }
 }
 
-.hero-section h1 {
+.hero-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0;
+}
+
+.top-anchor {
   font-weight: 700;
-  font-size: clamp(30px, 4.5vw, 62px);
+  font-size: clamp(32px, 4.5vw, 62px);
   line-height: 1.2;
   font-family: var(--first-font);
   letter-spacing: 0.1em;
-  margin: 65px auto 10px auto;
   text-shadow: 4px 4px 10px 0 var(--basic-lending);
 }
 
@@ -89,7 +97,6 @@ html {
   font-weight: 700;
   font-size: clamp(16px, 1.5vw, 24px);
   font-family: var(--first-font);
-  margin: 0 auto;
   text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 
   @media (width < 960px) {
@@ -112,7 +119,7 @@ html {
   height: 55px;
   box-shadow: 4px 4px 10px 0 var(--basic-lending);
   background: var(--white);
-  margin: 30px auto 0 auto;
+  margin: auto;
   cursor: pointer;
   font-weight: 700;
   font-size: 18px;
@@ -146,6 +153,7 @@ html {
 
 .logo img {
   height: 45px;
+  display: block;
   flex-shrink: 0;
 }
 
@@ -153,7 +161,7 @@ html {
   display: flex;
   list-style: none;
   padding: 0;
-  margin: 0 auto;
+  margin: 0;
   gap: 20px;
   flex-grow: 1;
   flex-shrink: 1;
@@ -170,11 +178,10 @@ html {
 .nav-links .link {
   white-space: nowrap;
   font-weight: 700;
-  font-size: clamp(16px, 1.5vw, 18px);
+  font-size: clamp(14px, 1.5vw, 16px);
   font-family: var(--first-font);
   text-decoration: none;
   color: var(--white);
-  text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .nav-contacts {
@@ -222,7 +229,8 @@ html {
 @media (max-width: 1024px) {
 
   .nav-bar {
-    padding: 0 30px;
+    padding: 0 20px;
+    align-items: center;
   }
 
   .nav-links {
@@ -340,12 +348,12 @@ html {
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     text-align: center;
     z-index: 9;
-    padding: 20px 0;
+    padding-block: 10px;
   }
 
   .nav-links.is-open li {
     text-align: center;
-    padding: 10px 0;
+    padding: 0;
   }
 }
 
@@ -357,12 +365,12 @@ html {
 
 .title {
   font-weight: 700;
-  font-size: 36px;
+  font-size: clamp(28px, 3.5vw, 42px);
   font-family: var(--first-font);
-  margin: 0 auto;
   text-align: center;
   color: var(--basic-lending);
-  margin-bottom: 50px;
+  margin: 0 auto 50px auto;
+  padding: 0 20px;
 }
 
 .advantages-container {
@@ -373,13 +381,16 @@ html {
 }
 
 .advantages-list {
-  display: flex;
+  display: grid;
   list-style: none;
   padding: 0;
   margin: 0;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 18px;
+  gap: 30px 18px;
+  /* Відступ: 30px між рядами, 18px між колонками */
+  /* Десктоп 6 в ряд */
+  grid-template-columns: repeat(6, 1fr);
 }
 
 .advantages-block {
@@ -387,15 +398,6 @@ html {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /* Розрахунок ширини для 6 блоків у ряду (1/6) */
-  /* (100% / 6) = 16.666%. Віднімаємо трохи, щоб вмістити gap */
-  flex-basis: calc(16.666% - 17px);
-  flex-grow: 1;
-  /* Дозволяємо розтягнутися */
-  flex-shrink: 1;
-  /* Дозволяємо стискатися */
-
-  min-width: 120px;
 }
 
 .advantages-block p {
@@ -413,28 +415,44 @@ html {
   margin-bottom: 20px;
 }
 
-@media (max-width: 992px) {
-  .advantages-block {
-    /* 4 блоки в ряду: (100% / 4) = 25% */
-    flex-basis: calc(25% - 15px);
+/* Планшет (від 768px до 1279px) */
+@media (max-width: 1279px) {
+  .advantages-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .advantages {
+    padding: 60px 0;
   }
 }
 
-@media (max-width: 600px) {
-  .advantages-block {
-    /* 2 блоки в ряду: (100% / 2) = 50% */
-    flex-basis: calc(50% - 10px);
+/* Мобільна версія (до 767px) */
+@media (max-width: 767px) {
+  .advantages-list {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 елементи в ряд */
+    gap: 25px 15px;
+  }
+
+  .title {
+    margin-bottom: 30px;
+  }
+
+  .icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .advantages-block p {
+    font-size: 14px;
   }
 }
-
-
-
 
 
 .products {
   background-color: transparent;
-  padding: 60px 0;
-  margin-bottom: -80px;
+  padding: 0;
+  margin-bottom: -100px;
 }
 
 .title {
@@ -449,51 +467,77 @@ html {
 
 .swiper {
   width: 100%;
-  max-width: 1360px;
-  /* 4 слайди по 311px + проміжки */
-  height: auto;
-  padding-bottom: 50px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 20px 50px 20px;
+  /* Паддінги, щоб на малих екранах картки не торкалися країв */
+  box-sizing: border-box;
 }
 
+
 .products-item {
-  width: 311px !important;
-  height: 590px !important;
-  background-color: var(--purple);
-  border-radius: 5px;
-  padding: 30px 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  scroll-snap-align: center;
-  justify-content: space-between;
-  padding: 30px 15px;
+  /* Центрує картинку, ціну та кнопку по горизонталі */
+  text-align: center;
+  background-color: var(--purple);
+  border-radius: 5px;
+  padding: 25px 15px;
+  height: auto;
   box-sizing: border-box;
 }
+
 
 .products-item:active {
   background: var(--light-purple);
 }
 
+
+.products-name,
+.price-box,
+.products-button {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .products-name {
   font-weight: 700;
-  font-size: 24px;
+  min-height: 24px;
   font-family: var(--first-font);
-  text-align: center;
   color: var(--white);
-  margin: 0 auto 15px auto;
+  margin: -15px auto 15px auto;
 }
 
 .products-img {
-  width: 281px;
-  height: 317px;
-  object-fit: cover;
-  border-radius: 2px;
+  width: 100%;
+  max-width: 280px;
+  /* Обмежуємо ширину фото */
+  height: 250px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+.products-img {
+  width: 100%;
+  max-width: 280px;
+  height: 300px;
+  /* Фіксуємо висоту фото, щоб картки були однаковими */
+  object-fit: contain;
+  margin-bottom: auto;
+  /* Це "виштовхує" все, що нижче (ціну та кнопку), донизу */
 }
 
 .price-box {
-  text-align: center;
-  margin: 0 0 30px 0;
-  font: 400;
+  margin: 15px 0;
+  flex-shrink: 0;
 }
 
 .old-price {
@@ -517,15 +561,13 @@ html {
   color: var(--yellow);
 }
 
+
 .products-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   white-space: nowrap;
   flex-shrink: 0;
   border: none;
   border-radius: 15px;
-  width: 278px;
+  max-width: 278px;
   height: 55px;
   background: var(--white);
   color: var(--basic-lending);
@@ -534,8 +576,11 @@ html {
   cursor: pointer;
   box-shadow: 4px 4px 10px 0 var(--basic-lending);
   transition: all 0.2s ease;
-  margin: 0 auto;
+  margin-top: auto;
+  /* Додатковий захист: притискає кнопку до низу */
+  flex-shrink: 0;
 }
+
 
 .products-button:hover {
   box-shadow: 4px 4px 15px 0 var(--basic-lending);
@@ -543,24 +588,78 @@ html {
 }
 
 .products-button:active {
-  box-shadow: 1px 1px 5px 0 #36014a inset;
+  box-shadow: 1px 1px 5px 0 var(--purple) inset;
   background: var(--blue);
   color: var(--white);
 }
 
-/* Колір крапок пагінації */
+.products-pagination {
+  bottom: 0 !important;
+  position: relative !important;
+  margin-top: 30px;
+}
+
+.mySwiper {
+  padding-bottom: 0 !important;
+  /* Збільшуємо місце під слайдами */
+}
+
+.swiper-pagination {
+  /* Переконуємося, що вона не абсолютна, щоб margin працював */
+  position: relative !important;
+  bottom: 0 !important;
+  margin-top: 20px !important;
+  /* Відступ від карток до крапок */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
 .swiper-pagination-bullet {
-  background: #fff !important;
-  opacity: 0.5;
+  width: 10px !important;
+  height: 10px !important;
+  background: var(--white) !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease;
 }
 
 .swiper-pagination-bullet-active {
   opacity: 1;
+  background: var(--yellow) !important;
+  width: 12px !important;
+  height: 12px !important;
 }
+
+.products-pagination,
+.gallery-pagination {
+  bottom: 0 !important;
+  position: relative !important;
+  margin-top: 30px;
+}
+
+.swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+  background: var(--white) !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: var(--yellow) !important;
+  width: 12px !important;
+  height: 12px !important;
+}
+
+
+
+
 
 .gallery {
   background-color: var(--basic-lending);
-  padding: 60px 0;
+  padding: 180px 0 50px 0;
   color: var(--white);
 }
 
@@ -575,7 +674,6 @@ html {
   color: var(--white);
 }
 
-/* Налаштування Swiper */
 .gallerySwiper {
   width: 100%;
   padding-bottom: 50px;
@@ -601,16 +699,34 @@ html {
   transform: scale(1.05);
 }
 
-/* Колір пагінації */
+.gallery-swiper-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-top: 30px;
+  /* Відступ від зображень */
+  width: 100%;
+  position: relative;
+  /* щоб пагінація була чітко під слайдером */
+  bottom: 0;
+}
+
 .galery-swiper-pagination-bullet {
-  background: var(--light-purple) !important;
-  opacity: 0.6;
+  background: var(--white) !important;
+  /* Наприклад, білий колір */
+  opacity: 0.5;
+  width: 10px;
+  height: 10px;
+  margin: 0 !important;
+  /* Прибираємо дефолтні марджини Swiper */
 }
 
 .galery-swiper-pagination-bullet-active {
-  background: var(--purple) !important;
+  background: var(--light-yellow) !important;
   opacity: 1;
 }
+
 
 
 
@@ -699,68 +815,123 @@ html {
 
 .reviews {
   background-color: var(--white);
-  padding: 0 0 80px 0;
-  margin: 0 auto;
-  overflow: hidden;
-  /* приховає все, що вилітає за межі секції */
+  padding: 80px 0 80px 0;
+  position: relative;
 }
 
 .reviews-wrapper {
   position: relative;
   display: flex;
   align-items: center;
-  max-width: 1110px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 50px;
+  padding: 0 60px;
 }
 
 .reviews-container {
   width: 100%;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  scroll-behavior: smooth;
+  overflow: hidden;
+  /* Приховуємо скролбар */
 }
-
-.reviews-container::-webkit-scrollbar {
-  display: none;
-}
-
-
 
 .reviews-list {
-  display: flex !important;
-  flex-wrap: nowrap !important;
+  display: flex;
+  transition: transform 0.5s ease;
   list-style: none;
-  gap: 10px;
   padding: 0;
   margin: 0;
-  width: max-content;
+  gap: 20px;
+  /* Відступ між картками */
 }
-
 
 .reviews-item {
   flex-shrink: 0;
-  width: 330px;
-  box-sizing: border-box;
-  height: 320px;
-  padding-right: 70px;
   position: relative;
-  scroll-snap-align: center;
+  height: 400px;
+  padding-right: 60px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+
+  /* Планшет (768-1279px): 2 блоки */
+  .reviews-item {
+    width: calc((100% - 20px) / 2);
+  }
+}
+
+@media (min-width: 1280px) {
+
+  /* Десктоп (1280+): 3 блоки */
+  .reviews-item {
+    width: calc((100% - 40px) / 3);
+  }
+}
+
+.reviews-content {
+  height: 100%;
+  background-color: var(--basic-lending);
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
 
-/* Стилі для крапок пагінації */
+
+.reviews-text-wrapper {
+  flex-grow: 1;
+  /* Займає весь вільний простір */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Текст зверху, автор знизу */
+}
+
+.reviews-text {
+  font-size: 16px;
+  color: var(--light-gray);
+  line-height: 1.5;
+  font-family: var(--first-font);
+  margin-bottom: 10px;
+  font-weight: 400;
+  padding: 0 30px 0 0;
+}
+
+.reviews-author {
+  margin-top: auto;
+  /* Притискає автора до низу */
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--light-gray);
+  font-family: var(--first-font);
+  line-height: 1.5;
+}
+
+.reviews img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 2;
+  border: 5px solid var(--white);
+}
+
+
+
+
 .pagination-dots {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-top: 20px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  height: 20px;
 }
 
 .dot {
@@ -773,10 +944,17 @@ html {
 }
 
 .dot.active {
-  opacity: 1;
   background-color: var(--basic-lending);
   transform: scale(1.2);
 }
+
+
+
+
+
+
+
+
 
 .scroll-btn {
   position: absolute;
@@ -811,19 +989,6 @@ html {
   right: 0;
 }
 
-.reviews-content {
-  height: 100%;
-  background-color: var(--basic-lending);
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  padding: 20px;
-  box-sizing: border-box;
-
-}
-
 
 .reviews-item h3 {
   font-size: 22px;
@@ -835,88 +1000,160 @@ html {
   margin: 0 auto;
 }
 
-.reviews-text {
-  font-size: 16px;
-  color: var(--light-gray);
-  line-height: 1.5;
-  font-family: var(--first-font);
-  margin-bottom: 15px;
-  font-weight: 400;
+
+
+
+
+
+
+
+
+
+.order-section {
+  padding: 0;
+  background-color: var(--basic-lending);
+  margin: 0 auto;
+  width: 100%;
+  justify-content: center;
 }
 
-.reviews-author {
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--light-gray);
-  font-family: var(--first-font);
-  margin-bottom: 15px;
-  line-height: 1.5;
+.order-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  padding: 50px 20px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1320px;
 }
 
-.reviews img {
-  width: 140px;
-  height: 140px;
+.order-img {
+  display: block;
+  width: 306px;
+  height: 333px;
   object-fit: cover;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  z-index: 2;
+  flex-shrink: 0;
 }
 
+.order-box {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
 
+.order-block {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+}
 
+.order-section h3 {
+  font-size: clamp(20px, 3.5vw, 24px);
+  color: var(--light-gray);
+  font-family: var(--first-font);
+  text-align: left;
+  margin: 0 0 30px 0;
+}
 
+.order-text {
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: var(--light-gray);
+  line-height: 1.5;
+  font-family: var(--second-font);
+  font-weight: 427;
+  margin-bottom: 80px;
+}
 
-@media (max-width: 1200px) {
-  .reviews-wrapper {
-    max-width: 860px;
+.button-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 100px;
+  margin: 0;
+  padding: 0;
+}
+
+.order-phone,
+.order-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 15px;
+  padding: 9px 42px;
+  width: 278px;
+  height: 55px;
+  box-shadow: 4px 4px 10px 0 var(--basic-lending);
+  background: var(--white);
+  margin: auto;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 18px;
+  font-family: var(--first-font);
+  color: var(--basic-lending);
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.order-phone:hover,
+.order-button:hover {
+  box-shadow: 4px 4px 15px 0 var(--basic-lending);
+  background: var(--light-yellow);
+}
+
+.order-phone:active,
+.order-button:active {
+  box-shadow: 1px 1px 5px 0 #36014a inset;
+  background: var(--blue);
+  color: var(--white);
+}
+
+/* --- ПЛАНШЕТ (768px - 1279px) --- */
+@media screen and (max-width: 1279px) {
+  .order-container {
+    gap: 40px;
   }
 
-  .reviews-item {
-    width: 380px;
+  .order-section h3 {
+    margin-bottom: 20px;
+  }
+
+  .order-text {
+    margin-bottom: 30px;
+    line-height: 1.4;
+  }
+
+  .button-box {
+    gap: 20px;
   }
 }
 
-@media (max-width: 992px) {
-  .reviews-wrapper {
-    max-width: 480px;
+/* --- МОБІЛЬНА ВЕРСІЯ (0 - 767px) --- */
+@media screen and (max-width: 767px) {
+  .order-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 15px;
   }
 
-  .reviews-list {
-    padding-left: 20px;
-  }
-}
-
-
-@media (max-width: 550px) {
-  .reviews-wrapper {
-    max-width: 100%;
-    padding: 0 40px;
+  .order-box {
+    align-items: center;
   }
 
-  .reviews-item {
-    width: 290px;
-    height: auto;
-    min-height: 380px;
+  .order-section h3,
+  .order-text {
+    text-align: center;
   }
 
-  .reviews-list {
-    padding-left: calc((100vw - 290px) / 2);
-    padding-right: calc((100vw - 290px) / 2);
-    gap: 50px;
-  }
-
-  .review-img {
-    width: 100px;
-    height: 100px;
-    right: -10px;
+  .button-box {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 }
-
-
 
 
 
@@ -1242,35 +1479,6 @@ html {
 .address-link {
   white-space: nowrap;
   /* Номер не розривається на два рядки */
-  font-size: clamp(14px, 4vw, 18px);
+  font-size: clamp(14px, 4vw, 16px);
   /* Шрифт підлаштовується під екран */
-}
-
-
-
-
-/* Планшет (768px - 1279px) */
-@media (max-width: 1279px) {
-
-  .products-item,
-  .gallery-images {
-    flex: 0 0 calc((100% - 20px) / 2);
-    /* 2 в ряд */
-  }
-}
-
-/* Мобільна версія (0 - 767px) */
-@media (max-width: 767px) {
-
-  .products-item,
-  .gallery-images {
-    flex: 0 0 290px;
-    /* 1 в ряд + шматочок наступного */
-  }
-
-  .products-button {
-    width: 250px;
-    /* Трохи вужча для мобільних, щоб не виходила за картку */
-    font-size: 16px;
-  }
 }
