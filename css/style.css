@@ -33,11 +33,10 @@ body {
   padding: 0;
 }
 
-/* Плавний скрол для всього сайту */
 html {
   scroll-behavior: smooth;
+  /* Плавний скрол для всього сайту */
 }
-
 
 .hero-section {
   width: 100%;
@@ -149,7 +148,6 @@ html {
   max-width: 1400px;
   margin: 0 auto;
 }
-
 
 .logo img {
   height: 45px;
@@ -291,10 +289,10 @@ html {
     font-size: 16px;
   }
 
-  /* Ховаємо іконку трубки та соцмережі, залишаємо лише номер */
   .phone-icon-link,
   .nav-contacts a:not(.mobile-phone-link) {
     display: none !important;
+    /* ховаємо всі елементи посилання, які НЕ мають класу "mobile-phone-link" */
   }
 
   .mobile-phone-link {
@@ -365,7 +363,7 @@ html {
 
 .title {
   font-weight: 700;
-  font-size: clamp(28px, 3.5vw, 42px);
+  font-size: clamp(28px, 2.5vw, 42px);
   font-family: var(--first-font);
   text-align: center;
   color: var(--basic-lending);
@@ -424,6 +422,10 @@ html {
   .advantages {
     padding: 60px 0;
   }
+
+  .title {
+    margin-bottom: 40px;
+  }
 }
 
 /* Мобільна версія (до 767px) */
@@ -434,8 +436,12 @@ html {
     gap: 25px 15px;
   }
 
+  .advantages {
+    padding: 40px 0;
+  }
+
   .title {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
   }
 
   .icon {
@@ -453,16 +459,6 @@ html {
   background-color: transparent;
   padding: 0;
   margin-bottom: -100px;
-}
-
-.title {
-  font-weight: 700;
-  font-size: 36px;
-  font-family: var(--first-font);
-  margin: 0 auto;
-  text-align: center;
-  color: var(--basic-lending);
-  margin-bottom: 50px;
 }
 
 .swiper {
@@ -521,10 +517,6 @@ html {
   margin-bottom: 20px;
 }
 
-
-
-
-
 .products-img {
   width: 100%;
   max-width: 280px;
@@ -580,7 +572,6 @@ html {
   /* Додатковий захист: притискає кнопку до низу */
   flex-shrink: 0;
 }
-
 
 .products-button:hover {
   box-shadow: 4px 4px 15px 0 var(--basic-lending);
@@ -657,6 +648,8 @@ html {
 
 
 
+
+
 .gallery {
   background-color: var(--basic-lending);
   padding: 180px 0 50px 0;
@@ -665,13 +658,14 @@ html {
 
 .gallery-title {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   font-weight: 700;
-  font-size: 36px;
+  font-size: clamp(28px, 2.5vw, 42px);
   font-family: var(--first-font);
   margin: 0 auto 15px;
   text-align: center;
   color: var(--white);
+  padding: 0 20px;
 }
 
 .gallerySwiper {
@@ -727,15 +721,24 @@ html {
   opacity: 1;
 }
 
+/* Планшет (від 768px до 1279px) */
+@media (max-width: 1279px) {
+  .gallery-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+}
 
-
-
-
-
+@media (max-width: 767px) {
+  .gallery-title {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+}
 
 .about-us {
   background-color: var(--white);
-  padding: 80px 0 0 0;
+  padding-top: 80px;
   margin: 0 auto;
 }
 
@@ -755,7 +758,6 @@ html {
   height: auto;
   border-radius: 15px;
   flex-shrink: 0;
-
 }
 
 .about-us-block {
@@ -782,6 +784,10 @@ html {
     gap: 30px;
   }
 
+  .about-us {
+    padding-top: 60px;
+  }
+
   .about-us-list {
     font-size: 18px;
   }
@@ -789,7 +795,7 @@ html {
 
 @media (max-width: 768px) {
   .about-us {
-    padding: 80px 0;
+    padding-top: 40px;
   }
 
   .about-us-container {
@@ -841,7 +847,6 @@ html {
   padding: 0;
   margin: 0;
   gap: 20px;
-  /* Відступ між картками */
 }
 
 .reviews-item {
@@ -853,11 +858,28 @@ html {
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 767px) {
+
+  /* Мобільна версія: 0px - 767px (1 блок) */
+  .reviews-item {
+    width: 100%;
+    height: 350px;
+  }
+
+  .reviews {
+    padding-block: 40px;
+  }
+}
+
+@media (max-width: 1279px) {
 
   /* Планшет (768-1279px): 2 блоки */
   .reviews-item {
     width: calc((100% - 20px) / 2);
+  }
+
+  .reviews {
+    padding: 60px 0 60px 0;
   }
 }
 
@@ -878,8 +900,6 @@ html {
   flex-direction: column;
   box-sizing: border-box;
 }
-
-
 
 .reviews-text-wrapper {
   flex-grow: 1;
@@ -924,9 +944,6 @@ html {
   border: 5px solid var(--white);
 }
 
-
-
-
 .pagination-dots {
   display: flex;
   justify-content: center;
@@ -947,14 +964,6 @@ html {
   background-color: var(--basic-lending);
   transform: scale(1.2);
 }
-
-
-
-
-
-
-
-
 
 .scroll-btn {
   position: absolute;
@@ -988,7 +997,6 @@ html {
 .next {
   right: 0;
 }
-
 
 .reviews-item h3 {
   font-size: 22px;
@@ -1111,7 +1119,7 @@ html {
   color: var(--white);
 }
 
-/* --- ПЛАНШЕТ (768px - 1279px) --- */
+/*планшет 768px - 1279px*/
 @media screen and (max-width: 1279px) {
   .order-container {
     gap: 40px;
@@ -1131,7 +1139,7 @@ html {
   }
 }
 
-/* --- МОБІЛЬНА ВЕРСІЯ (0 - 767px) --- */
+/* мобільна версія 0 - 767px*/
 @media screen and (max-width: 767px) {
   .order-container {
     flex-direction: column;
@@ -1154,8 +1162,6 @@ html {
     width: 100%;
   }
 }
-
-
 
 .faq-section {
   background-color: var(--white);
@@ -1185,6 +1191,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 20px;
 }
 
 .faq-question::-webkit-details-marker {
@@ -1214,14 +1221,83 @@ html {
 .faq-answer {
   background-color: var(--white);
   color: var(--black);
-  padding: 15px 20px;
+  padding: 15px;
+  font-size: 20px;
   border-radius: 0 0 4px 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .faq-answer p {
   margin: 0;
+  line-height: 1.5;
 }
+
+@media (min-width: 768px) {
+  .faq-section {
+    padding: 60px 40px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .faq-container {
+    max-width: 700px;
+  }
+
+  .faq-question {
+    padding: 15px 20px;
+    font-size: 18px;
+  }
+
+  .faq-answer {
+    padding: 20px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .faq-section {
+    padding: 40px 20px;
+  }
+
+  .faq-container {
+    max-width: 100%;
+  }
+
+  .faq-question {
+    padding: 12px 15px;
+    font-size: 16px;
+  }
+}
+
+/* Анімація для контенту */
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Застосовуємо анімацію до контенту при відкритті */
+.faq-item[open] .faq-answer {
+  animation: fadeInSlide 0.4s ease-out;
+}
+
+/* Додаємо плавності для фокусу (опціонально для доступності) */
+.faq-question:focus {
+  outline: 2px solid var(--basic-lending);
+  outline-offset: 2px;
+}
+
+
+
+
 
 .footer-section {
   background-color: var(--basic-lending);
@@ -1237,7 +1313,7 @@ html {
 .footer-container {
   max-width: 1320px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 35px 20px;
   display: flex;
   flex-direction: column;
 }
@@ -1280,12 +1356,12 @@ html {
 
 .footer-title {
   font-weight: 700;
-  font-size: 36px;
+  font-size: clamp(28px, 2.5vw, 42px);
   font-family: var(--first-font);
-  margin: o auto 15px;
   text-align: center;
   color: var(--white);
-
+  padding: 0 20px;
+  margin: 0 auto 50px auto;
 }
 
 .footer-section p {
@@ -1295,7 +1371,6 @@ html {
   font-family: var(--second-font);
   text-align: center;
   color: var(--white);
-
 }
 
 .footer-phone {
@@ -1308,7 +1383,7 @@ html {
   font-family: var(--first-font);
 }
 
-/* --- Кнопка "Надіслати" (3 стани) --- */
+/* Кнопка "Надіслати" (3 стани)*/
 .footer-button {
   width: 265px;
   height: 55px;
@@ -1324,14 +1399,14 @@ html {
   box-shadow: 4px 4px 10px 0 #36014a;
 }
 
-/* Стан 2: Hover (Наведення) */
+/* Стан 2: Наведення*/
 .footer-button:hover {
   background: var(--light-purple);
   color: var(--white);
   box-shadow: 4px 4px 10px 0 #36014a;
 }
 
-/* Стан 3: Active (Натискання) */
+/* Стан 3: Натискання */
 .footer-button:active {
   background: var(--light-purple);
   color: var(--white);
@@ -1382,11 +1457,16 @@ html {
   /* анімація при наведенні */
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1279px) {
   .footer-section {
     height: auto;
     max-height: none;
-    padding: 60px 0;
+    padding: 30px 0;
+  }
+
+  .footer-title {
+    margin-bottom: 40px;
+    font-size: 32px;
   }
 
   .inputs-group {
@@ -1409,10 +1489,15 @@ html {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .inputs-group {
     flex-direction: column;
     text-align: center;
+  }
+
+  .footer-title {
+    margin-bottom: 25px;
+    font-size: 28px;
   }
 
   .footer-bottom {
@@ -1441,6 +1526,10 @@ html {
   .footer-contacts {
     width: 100%;
     justify-content: center;
+  }
+
+  .footer-title {
+    margin-bottom: 25px;
   }
 }
 
