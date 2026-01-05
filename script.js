@@ -23,33 +23,33 @@ if (menuToggle && navLinks) {
 
 {
   // Скрол для Products
-const swiper = new Swiper('.mySwiper', {
-  slidesPerView: 1.2, // Показує шматочок наступної для мобілок (інтуїтивно для свайпу)
-  centeredSlides: false,
-  spaceBetween: 15,
-  slidesPerGroup: 1, // ГОРТАЄМО ПО ОДНІЙ КАРТЦІ
-  loop: false, // Для точної кількості крапок краще вимкнути loop
-  
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  
-  breakpoints: {
-    480: {
-      slidesPerView: 2,
-      spaceBetween: 20,
+  const swiper = new Swiper('.mySwiper', {
+    slidesPerView: 1.2, // Показує шматочок наступної для мобілок (інтуїтивно для свайпу)
+    centeredSlides: false,
+    spaceBetween: 15,
+    slidesPerGroup: 1, // ГОРТАЄМО ПО ОДНІЙ КАРТЦІ
+    loop: false, // Для точної кількості крапок краще вимкнути loop
+
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
     },
-    768: {
-      slidesPerView: 3,
-      spaceBetween: 25,
+
+    breakpoints: {
+      480: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 25,
+      },
+      1280: {
+        slidesPerView: 4,
+        spaceBetween: 30,
+      }
     },
-    1280: {
-      slidesPerView: 4,
-      spaceBetween: 30,
-    }
-  },
-});
+  });
 }
 
 
@@ -83,7 +83,24 @@ const gallerySwiper = new Swiper(".gallerySwiper", {
   },
 });
 
+// Функція для відкриття lamps-section (при кліку на фото в галереї)
+function openLampsSection() {
+  const section = document.getElementById('lamps-section');
+  section.classList.add('is-open');
+  document.body.style.overflow = 'hidden'; // Заборона скролу фону
+}
 
+// Функція для закриття lamps-section (при кліку на хрестик)
+function closeSection() {
+  const section = document.getElementById('lamps-section');
+  section.classList.remove('is-open');
+  document.body.style.overflow = ''; // Повернення скролу
+}
+
+// додаємо на всі картинки галереї
+document.querySelectorAll('.gallery img').forEach(img => {
+  img.addEventListener('click', openLampsSection);
+});
 
 //  ФОРМА ЗВОРОТНОГО ЗВ'ЯЗКУ 
 const footerForm = document.querySelector('.footer-form');
