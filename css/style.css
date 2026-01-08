@@ -224,7 +224,7 @@ html {
   fill: var(--blue);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
 
   .nav-bar {
     padding: 0 20px;
@@ -248,7 +248,7 @@ html {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .nav-bar {
     padding: 0 20px;
     justify-content: space-between;
@@ -511,7 +511,6 @@ html {
 .products-img {
   width: 100%;
   max-width: 280px;
-  /* Обмежуємо ширину фото */
   height: 250px;
   object-fit: contain;
   margin-bottom: 20px;
@@ -592,11 +591,9 @@ html {
 
 .mySwiper {
   padding-bottom: 0 !important;
-  /* Збільшуємо місце під слайдами */
 }
 
 .swiper-pagination {
-  /* Переконуємося, що вона не абсолютна, щоб margin працював */
   position: relative !important;
   bottom: 0 !important;
   margin-top: 20px !important;
@@ -643,12 +640,6 @@ html {
   width: 12px !important;
   height: 12px !important;
 }
-
-
-
-
-
-
 
 .gallery {
   background-color: var(--basic-lending);
@@ -1017,15 +1008,6 @@ html {
 .next {
   right: 0;
 }
-
-
-
-
-
-
-
-
-
 
 .order-section {
   padding: 0;
