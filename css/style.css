@@ -858,12 +858,31 @@ html {
   width: 100%;
 }
 
+.reviews-item h3 {
+  font-size: 22px;
+  color: var(--light-purple);
+  font-family: var(--first-font);
+  text-align: center;
+  margin: 0 auto 15px auto;
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  display: block;
+}
+
 @media (max-width: 767px) {
 
   /* Мобільна версія: 0px - 767px (1 блок) */
   .reviews-item {
     width: 100%;
-    height: 350px;
+    height: auto;
+    min-height: 350px;
+    padding-right: 20px;
+  }
+
+  .reviews-item h3 {
+    font-size: 14px;
+    line-height: 1.2;
   }
 
   .reviews {
@@ -876,6 +895,7 @@ html {
   /* Планшет (768-1279px): 2 блоки */
   .reviews-item {
     width: calc((100% - 20px) / 2);
+    height: 400px;
   }
 
   .reviews {
@@ -911,13 +931,13 @@ html {
 }
 
 .reviews-text {
-  font-size: 16px;
+  font-size: clamp(12px, 1.5vw + 8px, 16px);
   color: var(--light-gray);
   line-height: 1.5;
   font-family: var(--first-font);
   margin-bottom: 10px;
   font-weight: 400;
-  padding: 0 30px 0 0;
+  padding: 0 50px 0 0;
 }
 
 .reviews-author {
@@ -996,16 +1016,6 @@ html {
 
 .next {
   right: 0;
-}
-
-.reviews-item h3 {
-  font-size: 22px;
-  color: var(--light-purple);
-  font-family: var(--first-font);
-  align-self: center;
-  text-align: center;
-  width: 100%;
-  margin: 0 auto;
 }
 
 
